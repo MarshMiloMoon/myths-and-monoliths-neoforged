@@ -1,5 +1,8 @@
 package net.starglobe.mythsmonoliths;
 
+import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.Items;
+import net.starglobe.mythsmonoliths.item.ModItems;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -35,6 +38,8 @@ public class MythsMonoliths {
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
         NeoForge.EVENT_BUS.register(this);
 
+        ModItems.register(modEventBus);
+
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
@@ -47,7 +52,33 @@ public class MythsMonoliths {
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
+        if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+            //event.accept(Items.FIRE_CHARGE);
 
+            event.accept(ModItems.BREEZE_DUST);
+            //event.accept(Items.WIND_CHARGE);
+
+            event.accept(ModItems.BRINE_ROD);
+            event.accept(ModItems.BRINE_FOAM);
+            event.accept(ModItems.WATER_CHARGE);
+
+            event.accept(ModItems.BOULDER_ROD);
+            event.accept(ModItems.BOULDER_GRAIN);
+            event.accept(ModItems.EARTH_CHARGE);
+        }
+        if(event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
+            event.accept(ModItems.WATER_CHARGE);
+            event.accept(ModItems.EARTH_CHARGE);
+            event.accept(ModItems.GRAPPLE);
+            event.accept(ModItems.MUSIC_DISC_STRIKE);
+        }
+        if(event.getTabKey() == CreativeModeTabs.COMBAT) {
+            event.accept(ModItems.ANCHOR);
+            event.accept(ModItems.GAUNTLET);
+            //event.accept(Items.FIRE_CHARGE);
+            event.accept(ModItems.WATER_CHARGE);
+            event.accept(ModItems.EARTH_CHARGE);
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
@@ -61,9 +92,7 @@ public class MythsMonoliths {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-            // Some client setup code
-            LOGGER.info("HELLO FROM CLIENT SETUP");
-            LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
+
         }
     }
 }
