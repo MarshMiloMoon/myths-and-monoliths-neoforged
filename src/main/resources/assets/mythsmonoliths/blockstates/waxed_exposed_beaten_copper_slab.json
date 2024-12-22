@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "mythsmonoliths:block/exposed_beaten_copper_slab"
+    },
+    "type=double": {
+      "model": "mythsmonoliths:block/exposed_beaten_copper_slab_double"
+    },
+    "type=top": {
+      "model": "mythsmonoliths:block/exposed_beaten_copper_slab_top"
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "mythsmonoliths:block/beaten_copper",
+    "side": "mythsmonoliths:block/beaten_copper_slab",
+    "top": "mythsmonoliths:block/beaten_copper"
+  }
+}

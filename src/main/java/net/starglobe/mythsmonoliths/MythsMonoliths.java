@@ -2,7 +2,9 @@ package net.starglobe.mythsmonoliths;
 
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Items;
+import net.starglobe.mythsmonoliths.block.ModBlocks;
 import net.starglobe.mythsmonoliths.item.ModItems;
+import net.starglobe.mythsmonoliths.sound.ModSounds;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -39,6 +41,9 @@ public class MythsMonoliths {
         NeoForge.EVENT_BUS.register(this);
 
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
+
+        ModSounds.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
@@ -78,6 +83,67 @@ public class MythsMonoliths {
             //event.accept(Items.FIRE_CHARGE);
             event.accept(ModItems.WATER_CHARGE);
             event.accept(ModItems.EARTH_CHARGE);
+        }
+        if(event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
+            event.accept(ModBlocks.CALCITE_SLAB);
+            event.accept(ModBlocks.CALCITE_STAIRS);
+            event.accept(ModBlocks.CALCITE_WALL);
+            event.accept(ModBlocks.POLISHED_CALCITE);
+            event.accept(ModBlocks.POLISHED_CALCITE_SLAB);
+            event.accept(ModBlocks.POLISHED_CALCITE_STAIRS);
+            event.accept(ModBlocks.POLISHED_CALCITE_WALL);
+            event.accept(ModBlocks.CALCITE_BRICKS);
+            event.accept(ModBlocks.CALCITE_BRICK_SLAB);
+            event.accept(ModBlocks.CALCITE_BRICK_STAIRS);
+            event.accept(ModBlocks.CALCITE_BRICK_WALL);
+            event.accept(ModBlocks.CHISELED_CALCITE);
+            event.accept(ModBlocks.CHISELED_CALCITE_BRICKS);
+            event.accept(ModBlocks.SMOOTH_BASALT_SLAB);
+            event.accept(ModBlocks.SMOOTH_BASALT_STAIRS);
+            event.accept(ModBlocks.SMOOTH_BASALT_WALL);
+            event.accept(ModBlocks.POLISHED_SMOOTH_BASALT);
+            event.accept(ModBlocks.POLISHED_SMOOTH_BASALT_SLAB);
+            event.accept(ModBlocks.POLISHED_SMOOTH_BASALT_STAIRS);
+            event.accept(ModBlocks.POLISHED_SMOOTH_BASALT_WALL);
+            event.accept(ModBlocks.BASALT_BRICKS);
+            event.accept(ModBlocks.BASALT_BRICK_SLAB);
+            event.accept(ModBlocks.BASALT_BRICK_STAIRS);
+            event.accept(ModBlocks.BASALT_BRICK_WALL);
+            event.accept(ModBlocks.CHISELED_BASALT);
+            event.accept(ModBlocks.SMOOTH_NETHER_BRICKS);
+            event.accept(ModBlocks.SMOOTH_NETHER_BRICK_SLAB);
+            event.accept(ModBlocks.SMOOTH_NETHER_BRICK_STAIRS);
+            event.accept(ModBlocks.SMOOTH_NETHER_BRICK_WALL);
+            event.accept(ModBlocks.SMOOTH_RED_NETHER_BRICKS);
+            event.accept(ModBlocks.SMOOTH_RED_NETHER_BRICK_SLAB);
+            event.accept(ModBlocks.SMOOTH_RED_NETHER_BRICK_STAIRS);
+            event.accept(ModBlocks.SMOOTH_RED_NETHER_BRICK_WALL);
+            event.accept(ModBlocks.CHISELED_RED_NETHER_BRICKS);
+            event.accept(ModBlocks.RED_NETHER_BRICK_FENCE);
+            event.accept(ModBlocks.BEATEN_COPPER);
+            event.accept(ModBlocks.BEATEN_COPPER_SLAB);
+            event.accept(ModBlocks.SMOOTH_BEATEN_COPPER);
+            event.accept(ModBlocks.EXPOSED_BEATEN_COPPER);
+            event.accept(ModBlocks.EXPOSED_BEATEN_COPPER_SLAB);
+            event.accept(ModBlocks.EXPOSED_SMOOTH_BEATEN_COPPER);
+            event.accept(ModBlocks.WEATHERED_BEATEN_COPPER);
+            event.accept(ModBlocks.WEATHERED_BEATEN_COPPER_SLAB);
+            event.accept(ModBlocks.WEATHERED_SMOOTH_BEATEN_COPPER);
+            event.accept(ModBlocks.OXIDIZED_BEATEN_COPPER);
+            event.accept(ModBlocks.OXIDIZED_BEATEN_COPPER_SLAB);
+            event.accept(ModBlocks.OXIDIZED_SMOOTH_BEATEN_COPPER);
+            event.accept(ModBlocks.WAXED_BEATEN_COPPER);
+            event.accept(ModBlocks.WAXED_BEATEN_COPPER_SLAB);
+            event.accept(ModBlocks.WAXED_SMOOTH_BEATEN_COPPER);
+            event.accept(ModBlocks.WAXED_EXPOSED_BEATEN_COPPER);
+            event.accept(ModBlocks.WAXED_EXPOSED_BEATEN_COPPER_SLAB);
+            event.accept(ModBlocks.WAXED_EXPOSED_SMOOTH_BEATEN_COPPER);
+            event.accept(ModBlocks.WAXED_WEATHERED_BEATEN_COPPER);
+            event.accept(ModBlocks.WAXED_WEATHERED_BEATEN_COPPER_SLAB);
+            event.accept(ModBlocks.WAXED_WEATHERED_SMOOTH_BEATEN_COPPER);
+            event.accept(ModBlocks.WAXED_OXIDIZED_BEATEN_COPPER);
+            event.accept(ModBlocks.WAXED_OXIDIZED_BEATEN_COPPER_SLAB);
+            event.accept(ModBlocks.WAXED_OXIDIZED_SMOOTH_BEATEN_COPPER);
         }
     }
 

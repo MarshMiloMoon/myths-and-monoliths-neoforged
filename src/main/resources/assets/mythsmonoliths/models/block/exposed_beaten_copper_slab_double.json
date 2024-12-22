@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "mythsmonoliths:block/exposed_beaten_copper",
+    "side": "mythsmonoliths:block/exposed_beaten_copper_slab"
+  }
+}

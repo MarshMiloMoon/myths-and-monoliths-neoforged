@@ -1,10 +1,12 @@
 package net.starglobe.mythsmonoliths.item;
 
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Rarity;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.starglobe.mythsmonoliths.MythsMonoliths;
+import net.starglobe.mythsmonoliths.sound.ModSounds;
 
 public class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(MythsMonoliths.MOD_ID);
@@ -27,14 +29,15 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
 
     public static final DeferredItem<Item> GAUNTLET = ITEMS.register("gauntlet",
-            () -> new Item(new Item.Properties()));
+            () -> new Item(new Item.Properties().stacksTo(1)));
     public static final DeferredItem<Item> ANCHOR = ITEMS.register("anchor",
-            () -> new Item(new Item.Properties()));
+            () -> new Item(new Item.Properties().stacksTo(1)));
     public static final DeferredItem<Item> GRAPPLE = ITEMS.register("grapple",
-            () -> new Item(new Item.Properties()));
+            () -> new Item(new Item.Properties().stacksTo(1)));
 
     public static final DeferredItem<Item> MUSIC_DISC_STRIKE = ITEMS.register("music_disc_strike",
-            () -> new Item(new Item.Properties()));
+            () -> new Item(new Item.Properties().rarity(Rarity.RARE).jukeboxPlayable(ModSounds.STRIKE_KEY)
+                    .stacksTo(1)));
 
     public static void  register(IEventBus eventBus) {
         ITEMS.register(eventBus);
