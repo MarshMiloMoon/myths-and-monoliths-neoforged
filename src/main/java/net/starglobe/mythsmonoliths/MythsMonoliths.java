@@ -1,8 +1,11 @@
 package net.starglobe.mythsmonoliths;
 
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Items;
 import net.starglobe.mythsmonoliths.block.ModBlocks;
+import net.starglobe.mythsmonoliths.entity.ModEntities;
+import net.starglobe.mythsmonoliths.entity.client.BrineRenderer;
 import net.starglobe.mythsmonoliths.item.ModItems;
 import net.starglobe.mythsmonoliths.sound.ModSounds;
 import org.slf4j.Logger;
@@ -44,6 +47,8 @@ public class MythsMonoliths {
         ModBlocks.register(modEventBus);
 
         ModSounds.register(modEventBus);
+
+        ModEntities.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
@@ -145,6 +150,9 @@ public class MythsMonoliths {
             event.accept(ModBlocks.WAXED_OXIDIZED_BEATEN_COPPER_SLAB);
             event.accept(ModBlocks.WAXED_OXIDIZED_SMOOTH_BEATEN_COPPER);
         }
+        if(event.getTabKey() == CreativeModeTabs.SPAWN_EGGS) {
+            event.accept(ModItems.BRINE_SPAWN_EGG);
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
@@ -158,7 +166,7 @@ public class MythsMonoliths {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-
+            EntityRenderers.register(ModEntities.BRINE.get(), BrineRenderer::new);
         }
     }
 }
